@@ -27,9 +27,6 @@ function Models(game) {
             models.loader.load(
                 value,
                 function (collada) {
-                    for (var i=0; i<collada.scene.children.length; ++i ) {
-                        //collada.scene.children[i].material.shading = THREE.FlatShading;
-                    }
                     models.loaded[key] = collada;
                     models.attemptFinalize();
                 },

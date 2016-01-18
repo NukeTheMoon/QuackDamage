@@ -3,6 +3,7 @@ $(document).ready(function() {
     getScripts([
         "src/app/models.js",
         "src/app/viewport.js",
+        "src/app/playerCamera.js",
         "src/app/level.js",
         "src/app/game.js"
     ], function() {
@@ -16,6 +17,6 @@ $(document).ready(function() {
         };
 
         scripts.forEach(function(script) { $.getScript(script, internalCallback); });
-    };
+    }
 
 });

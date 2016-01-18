@@ -18,11 +18,11 @@ function Level(game) {
     level.initializeLight = function() {
         level.light = new THREE.AmbientLight();
         game.scene.add(level.light);
-    }
+    };
 
     level.spawn = function() {
         game.models.addToScene("level");
-    }
+    };
 
     level.initialize();
 
