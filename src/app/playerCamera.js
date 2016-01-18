@@ -9,6 +9,7 @@ function PlayerCamera(game) {
             game.viewport.near,
             game.viewport.far
         );
+        playerCamera.camera.position.y = 2;
         game.scene.add(playerCamera.camera);
     };
 

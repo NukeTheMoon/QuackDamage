@@ -5,6 +5,8 @@ $(document).ready(function() {
         "src/app/viewport.js",
         "src/app/playerCamera.js",
         "src/app/level.js",
+        "src/app/ui.js",
+        "src/app/playerControls.js",
         "src/app/game.js"
     ], function() {
         new Game();
