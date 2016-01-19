@@ -11,6 +11,7 @@ function PlayerCamera(game) {
         );
         playerCamera.camera.position.y = 2;
         game.scene.add(playerCamera.camera);
+
     };
 
     playerCamera.initialize();

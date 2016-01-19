@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+    var debug;
+
     getScripts([
         "src/app/models.js",
         "src/app/viewport.js",
@@ -9,7 +11,7 @@ $(document).ready(function() {
         "src/app/playerControls.js",
         "src/app/game.js"
     ], function() {
-        new Game();
+        debug = new Game();
     });
 
     function getScripts(scripts, callback) {

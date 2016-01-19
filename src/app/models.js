@@ -60,6 +60,7 @@ function Models(game) {
         if (models.allModelsLoaded) {
             var fetched = game.models.fetch(name);
             game.scene.add(game.models.fetch(name).scene);
+            return fetched;
         } else {
             models.backlog.push(name);
             document.addEventListener('onAllModelsLoaded', models.onAllModelsLoadedListener);

@@ -20,7 +20,14 @@ function Level(game) {
         game.scene.add(level.light);
     };
 
+    level.onAllModelsLoadedListener = function() {
+        level.model = game.models.fetch("level");
+        level.model.scene.rotation.order = "YXZ";
+        level.model.scene.rotation.x = -0.5 * Math.PI;
+    };
+
     level.spawn = function() {
+        document.addEventListener('onAllModelsLoaded', level.onAllModelsLoadedListener);
         game.models.addToScene("level");
     };
 

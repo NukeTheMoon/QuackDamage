@@ -12,7 +12,7 @@ THREE.PointerLockControls = function ( camera ) {
 	pitchObject.add( camera );
 
 	var yawObject = new THREE.Object3D();
-	yawObject.position.y = 10;
+	yawObject.position.y = 0;
 	yawObject.add( pitchObject );
 
 	var PI_2 = Math.PI / 2;
@@ -35,7 +35,7 @@ THREE.PointerLockControls = function ( camera ) {
 
 		document.removeEventListener( 'mousemove', onMouseMove, false );
 
-	}
+	};
 
 	document.addEventListener( 'mousemove', onMouseMove, false );
 
