@@ -12,7 +12,7 @@ THREE.PointerLockControls = function ( camera ) {
 	pitchObject.add( camera );
 
 	var yawObject = new THREE.Object3D();
-	yawObject.position.y = 0;
+	yawObject.position.y = 2;
 	yawObject.add( pitchObject );
 
 	var PI_2 = Math.PI / 2;
@@ -54,10 +54,10 @@ THREE.PointerLockControls = function ( camera ) {
 		var direction = new THREE.Vector3( 0, 0, - 1 );
 		var rotation = new THREE.Euler( 0, 0, 0, "YXZ" );
 
-		return function( v ) {
+		return function() {
 
 			rotation.set( pitchObject.rotation.x, yawObject.rotation.y, 0 );
-
+			var v = new THREE.Vector3( 0, 0, -1 );
 			v.copy( direction ).applyEuler( rotation );
 
 			return v;

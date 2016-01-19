@@ -8,7 +8,8 @@ function Models(game) {
     models.onAllModelsLoaded = new Event('onAllModelsLoaded');
     models.backlog = [];
     models.list = {
-        level: "/QuackDamage/dae/level-br.dae"
+        level: "/QuackDamage/dae/level-br.dae",
+        gun: "/QuackDamage/dae/gun.dae"
     };
 
     models.initialize = function() {
@@ -59,7 +60,7 @@ function Models(game) {
     models.addToScene = function(name) {
         if (models.allModelsLoaded) {
             var fetched = game.models.fetch(name);
-            game.scene.add(game.models.fetch(name).scene);
+            game.scene.add(fetched.scene);
             return fetched;
         } else {
             models.backlog.push(name);

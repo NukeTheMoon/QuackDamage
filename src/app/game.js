@@ -9,6 +9,7 @@ function Game() {
     game.level = new Level(game);
     game.ui = new UI(game);
     game.playerControls = new PlayerControls(game);
+    game.gun = new Gun(game);
 
     game.render = function () {
         requestAnimationFrame(game.render);
