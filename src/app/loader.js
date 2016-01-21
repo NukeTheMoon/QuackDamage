@@ -1,10 +1,11 @@
 $(document).ready(function() {
-    
+
     getScripts([
         "src/app/models.js",
         "src/app/viewport.js",
         "src/app/playerCamera.js",
         "src/app/gun.js",
+        "src/app/missile.js",
         "src/app/level.js",
         "src/app/ui.js",
         "src/app/playerControls.js",

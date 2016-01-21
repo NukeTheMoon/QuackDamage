@@ -22,8 +22,8 @@ function Level(game) {
 
     level.onAllModelsLoadedListener = function() {
         level.model = game.models.fetch("level");
-        level.model.scene.rotation.order = "YXZ";
-        level.model.scene.rotation.x = -0.5 * Math.PI;
+        //level.model.scene.rotation.order = "YXZ";
+        //level.model.scene.rotation.x = -0.5 * Math.PI;
     };
 
     level.spawn = function() {

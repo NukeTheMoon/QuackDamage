@@ -8,7 +8,7 @@ function Models(game) {
     models.onAllModelsLoaded = new Event('onAllModelsLoaded');
     models.backlog = [];
     models.list = {
-        level: "/QuackDamage/dae/level-br.dae",
+        level: "/QuackDamage/dae/level.dae",
         gun: "/QuackDamage/dae/gun.dae"
     };
 
@@ -24,6 +24,7 @@ function Models(game) {
     };
 
     models.load = function(urls) {
+        models.loader.options.convertUpAxis = true;
         $.each(urls, function(key, value) {
             models.loader.load(
                 value,
