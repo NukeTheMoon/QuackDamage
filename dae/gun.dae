@@ -5,20 +5,21 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.72.0 commit date:2014-10-21, commit time:11:38, hash:9e963ae</authoring_tool>
     </contributor>
-    <created>2016-01-19T04:35:11</created>
-    <modified>2016-01-19T04:35:11</modified>
+    <created>2016-01-21T08:58:01</created>
+    <modified>2016-01-21T08:58:01</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
   <library_images>
-    <image id="rocketl_bmp" name="rocketl_bmp">
-      <init_from>rocketl.png</init_from>
-    </image>
-    <image id="rocketl2_bmp" name="rocketl2_bmp">
-      <init_from>rocketl2.png</init_from>
-    </image>
-  </library_images>  <library_effects>
-    <effect id="Material-effect">
+      <image id="rocketl_bmp" name="rocketl_bmp">
+        <init_from>rocketl.png</init_from>
+      </image>
+      <image id="rocketl2_bmp" name="rocketl2_bmp">
+        <init_from>rocketl2.png</init_from>
+      </image>
+    </library_images>
+  <library_effects>
+    <effect id="Material_001-effect">
       <profile_COMMON>
         <newparam sid="rocketl2_bmp-surface">
           <surface type="2D">
@@ -60,7 +61,7 @@
       </profile_COMMON>
       <extra><technique profile="MAX3D"><double_sided>1</double_sided></technique></extra>
     </effect>
-    <effect id="Material_001-effect">
+    <effect id="Material-effect">
       <profile_COMMON>
         <newparam sid="rocketl_bmp-surface">
           <surface type="2D">
@@ -104,11 +105,11 @@
     </effect>
   </library_effects>
   <library_materials>
-    <material id="Material-material" name="Material">
-      <instance_effect url="#Material-effect"/>
-    </material>
     <material id="Material_001-material" name="Material_001">
       <instance_effect url="#Material_001-effect"/>
+    </material>
+    <material id="Material-material" name="Material">
+      <instance_effect url="#Material-effect"/>
     </material>
   </library_materials>
   <library_geometries>
@@ -146,7 +147,7 @@
         <vertices id="w_rocketl01-mesh-vertices">
           <input semantic="POSITION" source="#w_rocketl01-mesh-positions"/>
         </vertices>
-        <polylist material="Material-material" count="156">
+        <polylist material="Material_001-material" count="156">
           <input semantic="VERTEX" source="#w_rocketl01-mesh-vertices" offset="0"/>
           <input semantic="NORMAL" source="#w_rocketl01-mesh-normals" offset="1"/>
           <input semantic="TEXCOORD" source="#w_rocketl01-mesh-map" offset="2" set="0"/>
@@ -189,7 +190,7 @@
         <vertices id="w_rocketl-mesh-vertices">
           <input semantic="POSITION" source="#w_rocketl-mesh-positions"/>
         </vertices>
-        <polylist material="Material_001-material" count="249">
+        <polylist material="Material-material" count="249">
           <input semantic="VERTEX" source="#w_rocketl-mesh-vertices" offset="0"/>
           <input semantic="NORMAL" source="#w_rocketl-mesh-normals" offset="1"/>
           <input semantic="TEXCOORD" source="#w_rocketl-mesh-map" offset="2" set="0"/>
@@ -207,7 +208,7 @@
         <instance_geometry url="#w_rocketl01-mesh">
           <bind_material>
             <technique_common>
-              <instance_material symbol="Material-material" target="#Material-material">
+              <instance_material symbol="Material_001-material" target="#Material_001-material">
                 <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
               </instance_material>
             </technique_common>
@@ -219,7 +220,7 @@
         <instance_geometry url="#w_rocketl-mesh">
           <bind_material>
             <technique_common>
-              <instance_material symbol="Material_001-material" target="#Material_001-material">
+              <instance_material symbol="Material-material" target="#Material-material">
                 <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
               </instance_material>
             </technique_common>
