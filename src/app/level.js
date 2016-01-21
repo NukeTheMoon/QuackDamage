@@ -21,14 +21,11 @@ function Level(game) {
     };
 
     level.onAllModelsLoadedListener = function() {
-        level.model = game.models.fetch("level");
-        //level.model.scene.rotation.order = "YXZ";
-        //level.model.scene.rotation.x = -0.5 * Math.PI;
+        level.model = game.models.addToScene("level");
     };
 
     level.spawn = function() {
         document.addEventListener('onAllModelsLoaded', level.onAllModelsLoadedListener);
-        game.models.addToScene("level");
     };
 
     level.initialize();

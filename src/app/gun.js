@@ -3,27 +3,41 @@ function Gun(game) {
     var gun = {};
 
     gun.model = null;
+    gun.origin = null;
 
     gun.setPosition = function() {
-        gun.model.scene.position.x = 0.5; // positive: right, negative: left
-        gun.model.scene.position.y = -1; // positive: up, negative: down
-        gun.model.scene.position.z = 1.5; // positive: behind, negative: forward
-        gun.model.scene.rotation.y = - 2 * (Math.PI / 2);
+        gun.model.position.x = 0.5; // positive: right, negative: left
+        gun.model.position.y = -1; // positive: up, negative: down
+        gun.model.position.z = 1.5; // positive: behind, negative: forward
+        gun.model.rotation.z = - 2 * (Math.PI / 2);
+    };
+
+    gun.getOrigin = function() {
+        gun.model.traverse(function (child) {
+           if (child.name == "origin") {
+               gun.origin = child.localToWorld(gun.model.position);
+           }
+        });
     };
 
     gun.onAllModelsLoadedListener = function() {
-        gun.model = game.models.fetch("gun");
-        gun.setPosition();
-        game.playerCamera.camera.add(gun.model.scene);
+        gun.spawn();
     };
 
     gun.spawn = function() {
-        document.addEventListener('onAllModelsLoaded', gun.onAllModelsLoadedListener);
-        game.models.addToScene("gun");
+        gun.model = game.models.addToScene("gun");
+        gun.setPosition();
+        gun.getOrigin();
+        game.playerCamera.camera.add(gun.model);
     };
 
     gun.initialize = function() {
-        gun.spawn();
+        if (game.models.allModelsLoaded) {
+            gun.spawn();
+        }
+        else {
+            document.addEventListener('onAllModelsLoaded', gun.onAllModelsLoadedListener);
+        }
     };
 
     gun.initialize();

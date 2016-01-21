@@ -9,7 +9,8 @@ function Models(game) {
     models.backlog = [];
     models.list = {
         level: "/QuackDamage/dae/level.dae",
-        gun: "/QuackDamage/dae/gun.dae"
+        gun: "/QuackDamage/dae/q3rocket.dae",
+        missile: "/QuackDamage/dae/missile.dae"
     };
 
     models.initialize = function() {
@@ -60,12 +61,13 @@ function Models(game) {
 
     models.addToScene = function(name) {
         if (models.allModelsLoaded) {
-            var fetched = game.models.fetch(name);
-            game.scene.add(fetched.scene);
-            return fetched;
+            var fetched = game.models.fetch(name).scene;
+            var instance = fetched.clone(true);
+            game.scene.add(instance);
+            return instance;
         } else {
             models.backlog.push(name);
-            document.addEventListener('onAllModelsLoaded', models.onAllModelsLoadedListener);
+            document.addEventListener('onAllModelsLoaded', models.onAllModelsLoadedListener); // js auto-prevents adding the same event to the same DOM element
         }
     };
 

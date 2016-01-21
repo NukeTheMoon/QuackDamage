@@ -10,8 +10,10 @@ function Viewport(game) {
             viewport.container.width(viewport.width);
             viewport.container.height(viewport.height);
             viewport.renderer.setSize(viewport.width, viewport.height);
-            viewport.camera.aspect = viewport.aspect;
-            viewport.camera.updateProjectionMatrix();
+            if (game.playerCamera.camera) {
+                game.playerCamera.camera.aspect = viewport.aspect;
+                game.playerCamera.camera.updateProjectionMatrix();
+            }
         }
     };
 
