@@ -3,14 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f9936659-e5ea-43e2-b0a9-d76238637968" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bower_components/three.js/examples/js/loaders/ColladaLoader.js" afterPath="$PROJECT_DIR$/bower_components/three.js/examples/js/loaders/ColladaLoader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/game.js" afterPath="$PROJECT_DIR$/src/app/game.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/gun.js" afterPath="$PROJECT_DIR$/src/app/gun.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/level.js" afterPath="$PROJECT_DIR$/src/app/level.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/loader.js" afterPath="$PROJECT_DIR$/src/app/loader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/missile.js" afterPath="$PROJECT_DIR$/src/app/missile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/models.js" afterPath="$PROJECT_DIR$/src/app/models.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/viewport.js" afterPath="$PROJECT_DIR$/src/app/viewport.js" />
     </list>
     <ignored path="gk_zaliczenie.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -515,7 +507,13 @@
       <option name="project" value="LOCAL" />
       <updated>1453364384899</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="gun shoots in a fixed direction">
+      <created>1453386283446</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1453386283446</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -566,7 +564,8 @@
     <MESSAGE value="Gun sticks to camera" />
     <MESSAGE value="Fixed problem with loading different XYZ directions from blender" />
     <MESSAGE value="added missile origin point to gun model" />
-    <option name="LAST_COMMIT_MESSAGE" value="added missile origin point to gun model" />
+    <MESSAGE value="gun shoots in a fixed direction" />
+    <option name="LAST_COMMIT_MESSAGE" value="gun shoots in a fixed direction" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
