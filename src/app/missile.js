@@ -5,7 +5,7 @@ function Missile(game) {
     missile.model = null;
     missile.speed = 0.05;
     missile.origin = null;
-    missile.maxDistance = 100;
+    missile.maxDistance = 500;
 
     missile.initialize = function() {
         missile.spawn();
@@ -17,6 +17,10 @@ function Missile(game) {
         missile.model.position.x = (missile.origin.x) / near;
         missile.model.position.y = (missile.origin.y) / near;
         missile.model.position.z = (missile.origin.z) / near;
+    };
+
+    missile.setRotation = function() {
+        missile.model.lookAt(game.playerCamera.camera.position);
     };
 
     missile.travel = function() {
@@ -34,6 +38,7 @@ function Missile(game) {
     };
 
     missile.onFrameListener = function() {
+        missile.setRotation();
         missile.travel();
         missile.despawn();
     };
@@ -44,6 +49,9 @@ function Missile(game) {
 
     missile.spawn = function() {
         missile.model = game.models.addToScene("missile");
+
+        //missile.model.children[0].material.alphaMap =
+
         missile.setPosition();
         missile.setTravel();
     };

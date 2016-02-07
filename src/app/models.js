@@ -12,6 +12,9 @@ function Models(game) {
         gun: "/QuackDamage/dae/q3rocket.dae",
         missile: "/QuackDamage/dae/missile.dae"
     };
+    models.alphas = {
+        missile: THREE.ImageUtils.loadTexture("/QuackDamage/dae/missile_alpha.png")
+    };
 
     models.initialize = function() {
         models.load(models.list);
@@ -31,6 +34,9 @@ function Models(game) {
                 value,
                 function (collada) {
                     models.loaded[key] = collada;
+                    if (key in models.alphas) {
+                        models.loaded[key].scene.children[0].material.alphaMap = models.alphas[key];
+                    }
                     models.attemptFinalize();
                 },
                 function (xhr) {
