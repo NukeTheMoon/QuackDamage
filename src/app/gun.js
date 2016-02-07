@@ -13,11 +13,14 @@ function Gun(game) {
     };
 
     gun.getOrigin = function() {
+        game.scene.updateMatrixWorld();
         gun.model.traverse(function (child) {
-           if (child.name == "origin") {
-               gun.origin = child.localToWorld(gun.model.position);
-           }
+            if (child.name == "origin") {
+                gun.origin = new THREE.Vector3();
+                gun.origin.setFromMatrixPosition(child.matrixWorld);
+            }
         });
+        return gun.origin;
     };
 
     gun.onAllModelsLoadedListener = function() {

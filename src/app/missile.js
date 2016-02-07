@@ -3,26 +3,39 @@ function Missile(game) {
     var missile = {};
 
     missile.model = null;
-    missile.speed = 0.1;
+    missile.speed = 0.05;
+    missile.origin = null;
+    missile.maxDistance = 100;
 
     missile.initialize = function() {
         missile.spawn();
-
     };
 
     missile.setPosition = function() {
-        missile.model.position.x = 0.5;
-        missile.model.position.y = 1;
-        missile.model.position.z = -2;
-        //missile.model.position.set(game.gun.origin.x, game.gun.origin.y, game.gun.origin.z);
+        missile.origin = game.gun.getOrigin();
+        var near = 5; // http://i.imgur.com/KfucOsR.png
+        missile.model.position.x = (missile.origin.x) / near;
+        missile.model.position.y = (missile.origin.y) / near;
+        missile.model.position.z = (missile.origin.z) / near;
     };
 
     missile.travel = function() {
-        missile.model.position.z -= missile.speed;
+        missile.model.position.x += missile.origin.x * missile.speed;
+        missile.model.position.y += missile.origin.y * missile.speed;
+        missile.model.position.z += missile.origin.z * missile.speed;
+    };
+
+    missile.despawn = function() {
+        if (Math.abs(missile.model.position.x) > missile.maxDistance ||
+            Math.abs(missile.model.position.y) > missile.maxDistance ||
+            Math.abs(missile.model.position.z) > missile.maxDistance) {
+            game.scene.remove(missile.model);
+        }
     };
 
     missile.onFrameListener = function() {
         missile.travel();
+        missile.despawn();
     };
 
     missile.setTravel = function() {
