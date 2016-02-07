@@ -13,7 +13,7 @@ function Missile(game) {
 
     missile.setPosition = function() {
         missile.origin = game.gun.getOrigin();
-        var near = 5; // http://i.imgur.com/KfucOsR.png
+        var near = 8; // http://i.imgur.com/KfucOsR.png
         missile.model.position.x = (missile.origin.x) / near;
         missile.model.position.y = (missile.origin.y) / near;
         missile.model.position.z = (missile.origin.z) / near;

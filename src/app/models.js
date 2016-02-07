@@ -2,18 +2,19 @@ function Models(game) {
 
     var models = {};
 
+    models.homeUrlPrefix = "/~moon/quackdamage/"; // CHANGE ME!
     models.loaded = {};
     models.loader = new THREE.ColladaLoader();
     models.allModelsLoaded = false;
     models.onAllModelsLoaded = new Event('onAllModelsLoaded');
     models.backlog = [];
     models.list = {
-        level: "/QuackDamage/dae/level.dae",
-        gun: "/QuackDamage/dae/q3rocket.dae",
-        missile: "/QuackDamage/dae/missile.dae"
+        level: models.homeUrlPrefix + "dae/level.dae",
+        gun: models.homeUrlPrefix + "dae/q3rocket.dae",
+        missile: models.homeUrlPrefix + "dae/missile.dae"
     };
     models.alphas = {
-        missile: THREE.ImageUtils.loadTexture("/QuackDamage/dae/missile_alpha.png")
+        missile: THREE.ImageUtils.loadTexture(models.homeUrlPrefix + "dae/missile_alpha.png")
     };
 
     models.initialize = function() {
